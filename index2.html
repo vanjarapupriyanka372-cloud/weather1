@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:purple;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .container{
+            background:blue;
+            padding:25px;
+            border-radius:15px;
+            text-align:center;
+            width:300px;
+            box-shadow:0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin:10px 0;
+            border:1px solid #ccc;
+            border-radius:8px;
+        }
+
+        button{
+            width:100%;
+            padding:10px;
+            border:none;
+            background:#2196F3;
+            color:white;
+            border-radius:8px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:black;
+        }
+
+        .weather{
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🌤 Weather App</h2>
+
+    <input type="text" id="city" placeholder="Enter the name of place you are at">
+
+    <button onclick="getWeather()">Search</button>
+
+    <div class="weather">
+        <h3 id="cityName">City</h3>
+        <h1 id="temp">--°C</h1>
+        <p id="condition">Weather Condition</p>
+    </div>
+</div>
+
+<script>
+function getWeather() {
+    const city = document.getElementById("city").value;
+
+    if(city === ""){
+        alert("Please enter a city name");
+        return;
+    }
+
+    document.getElementById("cityName").innerText = city;
+    document.getElementById("temp").innerText =
+        Math.floor(Math.random() * 15 + 20) + "°C";
+
+    const conditions = ["Sunny ☀️", "Cloudy ☁️", "Rainy 🌧️"];
+    document.getElementById("condition").innerText =
+        conditions[Math.floor(Math.random() * conditions.length)];
+}
+</script>
+
+</body>
+</html>
